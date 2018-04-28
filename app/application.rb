@@ -19,15 +19,9 @@ class Application
       @@cart.each do |cart_item|
         resp.write "#{cart_item}\n"
       else resp.write "Your cart is empty"
-      end 
-    else
-      resp.write "Path Not Found" #for neither /items nor /search, return "Path Not Found"
-    end
-
-    if
       end
     else
-      resp.write "Your cart is empty"
+      resp.write "Path Not Found" #for neither /items nor /search, return "Path Not Found"
     end
 
     resp.finish
