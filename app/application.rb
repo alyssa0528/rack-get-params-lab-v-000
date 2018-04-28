@@ -22,6 +22,10 @@ class Application
     resp.finish
   end
 
+  def call(env)
+    resp = 
+  end 
+
   def handle_search(search_term)
     if @@items.include?(search_term)
       return "#{search_term} is one of our items"
