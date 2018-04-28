@@ -19,19 +19,21 @@ class Application
       resp.write "Path Not Found" #for neither /items nor /search, return "Path Not Found"
     end
 
-    resp.finish
-  end
-
-  def call(env)
-    resp = Rack::Response.new
-    req = Rack::Request.new
-
     if req.path.match(/cart/)
       @@cart.each do |cart_item|
         resp.write "#{cart_item}\n"
       end 
     end
+
+    resp.finish
   end
+
+  #def call(env)
+  #  resp = Rack::Response.new
+  #  req = Rack::Request.new
+
+    
+  #end
 
   def handle_search(search_term)
     if @@items.include?(search_term)
