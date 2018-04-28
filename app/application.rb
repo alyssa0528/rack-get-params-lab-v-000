@@ -7,7 +7,7 @@ class Application
     resp = Rack::Response.new #new response instance 
     req = Rack::Request.new(env) #new request instance
 
-    if req.path.match(/items/)
+    if req.path.match(/items/) #for /items path only, iterate through and list each item 
       @@items.each do |item|
         resp.write "#{item}\n"
       end
