@@ -21,6 +21,7 @@ class Application
       else @@cart.each do |cart_item|
         resp.write "#{cart_item}\n"
       end
+    end 
     else
       resp.write "Path Not Found" #for neither /items nor /search, return "Path Not Found"
     end
