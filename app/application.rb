@@ -7,15 +7,16 @@ class Application
     resp = Rack::Response.new #new response instance
     req = Rack::Request.new(env) #new request instance
 
-    if req.path.match(/items/) #for /items path only, iterate through and list each item in @@items 
+    if req.path.match(/items/) #for /items path only, iterate through and list each item in @@items
       @@items.each do |item|
         resp.write "#{item}\n"
       end
-    elsif req.path.match(/search/) 
+    elsif req.path.match(/search/) #for /search path only, call #handle_search method. if the search_term is in @@items,
+      #it returns a response. 
       search_term = req.params["q"]
       resp.write handle_search(search_term)
     else
-      resp.write "Path Not Found"
+      resp.write "Path Not Found" #for neither /items nor /search, return "Path Not Found"
     end
 
     resp.finish
