@@ -21,12 +21,13 @@ class Application
       else @@cart.each do |cart_item|
         resp.write "#{cart_item}\n"
       end
-    end 
+    end
   elsif req.path.match(/add/)
     added_item = req.params["item"]
     if @@items.include?(added_item)
       @@cart << added_item 
-    
+    else 
+
     else
       resp.write "Path Not Found" #for neither /items nor /search, return "Path Not Found"
     end
