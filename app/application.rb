@@ -4,14 +4,14 @@ class Application
   @@cart = []
 
   def call(env)
-    resp = Rack::Response.new #new response instance 
+    resp = Rack::Response.new #new response instance
     req = Rack::Request.new(env) #new request instance
 
-    if req.path.match(/items/) #for /items path only, iterate through and list each item 
+    if req.path.match(/items/) #for /items path only, iterate through and list each item in @@items 
       @@items.each do |item|
         resp.write "#{item}\n"
       end
-    elsif req.path.match(/search/)
+    elsif req.path.match(/search/) 
       search_term = req.params["q"]
       resp.write handle_search(search_term)
     else
