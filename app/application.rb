@@ -23,13 +23,13 @@ class Application
   end
 
   def call(env)
-    resp = Rack::Response.new 
-    req = Rack::Request.new 
+    resp = Rack::Response.new
+    req = Rack::Request.new
 
     if req.path.match(/cart/)
       @@cart.each do |cart_item|
-        
-    end 
+        resp.write "#{cart_item}\n"
+    end
   end
 
   def handle_search(search_term)
