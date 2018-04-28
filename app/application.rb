@@ -22,7 +22,7 @@ class Application
     if req.path.match(/cart/)
       @@cart.each do |cart_item|
         resp.write "#{cart_item}\n"
-      end 
+      end
     end
 
     resp.finish
@@ -32,7 +32,7 @@ class Application
   #  resp = Rack::Response.new
   #  req = Rack::Request.new
 
-    
+
   #end
 
   def handle_search(search_term)
