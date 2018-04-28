@@ -19,8 +19,8 @@ class Application
       @@cart.each do |cart_item|
         resp.write "#{cart_item}\n"
       end 
-      else resp.write "Your cart is empty"
-      end
+    elsif @@cart == [] 
+      resp.write "Your cart is empty"
     else
       resp.write "Path Not Found" #for neither /items nor /search, return "Path Not Found"
     end
