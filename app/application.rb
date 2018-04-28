@@ -12,7 +12,7 @@ class Application
         resp.write "#{item}\n"
       end
     elsif req.path.match(/search/) #for /search path only, call #handle_search method. if the search_term is in @@items,
-      #it returns a response. 
+      #it returns a response.
       search_term = req.params["q"]
       resp.write handle_search(search_term)
     else
