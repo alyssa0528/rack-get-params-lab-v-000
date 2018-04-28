@@ -22,6 +22,11 @@ class Application
         resp.write "#{cart_item}\n"
       end
     end 
+  elsif req.path.match(/add/)
+    added_item = req.params["item"]
+    if @@items.include?(added_item)
+      @@cart << added_item 
+    
     else
       resp.write "Path Not Found" #for neither /items nor /search, return "Path Not Found"
     end
@@ -29,12 +34,6 @@ class Application
     resp.finish
   end
 
-  #def call(env)
-  #  resp = Rack::Response.new
-  #  req = Rack::Request.new
-
-
-  #end
 
   def handle_search(search_term)
     if @@items.include?(search_term)
